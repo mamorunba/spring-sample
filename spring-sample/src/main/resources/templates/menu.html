@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Top page</title>
+</head>
+<body>
+    <p th:text="${msg}">please wait...</p>
+	<table>
+	    <tr>
+	        <th>ID</th>
+	        <th>姓</th>
+	        <th>名</th>
+	        <th>メールアドレス</th>
+	        <th>誕生日</th>
+	    </tr>
+
+	    <tr th:each="customer : ${customers}" th:object="${customer}">
+	        <td th:text="*{id}">1</td>
+	        <td th:text="*{lastName}">Suzuki</td>
+	        <td th:text="*{firstName}">Taro</td>
+	        <td th:text="*{email}">tsuzuki@example.com</td>
+	        <td th:text="*{#temporals.format(birthday, 'uuuu-MM-dd')}">2000-01-01</td>
+	    </tr>
+	    <!--/*-->
+	    <tr>
+	        <td>2</td>
+	        <td>Suzuki</td>
+	        <td>Jiro</td>
+	        <td>jsuzuki@example.com</td>
+	        <td>2000-01-02</td>
+	    </tr>
+	    <tr>
+	        <td>3</td>
+	        <td>Suzuki</td>
+	        <td>Saburo</td>
+	        <td>ssuzuki@example.com</td>
+	        <td>2000-01-03</td>
+	    </tr>
+	    <!--*/-->
+	</table>
+</body>
+</html>
